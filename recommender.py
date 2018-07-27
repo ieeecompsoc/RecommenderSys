@@ -78,3 +78,17 @@ common_list = set(common_list)
 full_list = set(full_list)
 
 recommendation = full_list.difference(common_list)
+
+item_list = (((pd.merge(items,data).sort_values(by = 'movie_id')).groupby('movie title')))['movie_id', 'movie title', 'rating']
+item_list = item_list.mean()
+item_list['movie title'] = item_list.index
+item_list = item_list.as_matrix()
+
+recommendation_list = []
+
+for i in recommendation:
+    recommendation_list.append(item_list[i-1])
+    
+recommendation = (pd.DataFrame(recommendation_list, columns = ['movie_id', 'mean rating', 'movie title'])).sort_values(by = 'mean rating', ascending = False)
+
+print(recommendation[['mean rating', 'movie title']])
