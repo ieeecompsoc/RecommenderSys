@@ -63,3 +63,18 @@ score = score.sort_values(by = 'Eucledian Score')
 print(score)
 
 score_matrix = score.as_matrix()   
+
+
+user = int(score_matrix[0][0])
+common_list = []
+full_list = []
+for i in utest:
+    for j in users_list[user-1]:
+        if(int(i[1]) == int(j[1])):
+            common_list.append(int(j[1]))
+        full_list.append(int(j[1]))
+    
+common_list = set(common_list)
+full_list = set(full_list)
+
+recommendation = full_list.difference(common_list)
