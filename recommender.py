@@ -7,8 +7,8 @@ import math
 
 #Reading users file:
 
-u_cols = ['user_id', 'age', 'sex', 'occupation', 'zip_code']
-users = pd.read_csv('Desktop/ml-100k/u.user', sep='|', names=u_cols, encoding='latin-1')
+user_cols = ['user_id', 'age', 'sex', 'occupation', 'zip_code']
+users = pd.read_csv('Desktop/ml-100k/u.user', sep='|', names=user_cols, encoding='latin-1')
 
 #Reading ratings file:
 
